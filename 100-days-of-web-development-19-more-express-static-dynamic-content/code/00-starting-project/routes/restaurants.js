@@ -46,7 +46,7 @@ router.get("/restaurants", function (req, res) {
   res.render("restaurants", {
     numberOfRestaurants: storedRestaurants.length,
     restaurants: storedRestaurants,
-    nextOrder: nextOrders
+    nextOrder: nextOrder
   });
 });
 
@@ -58,9 +58,8 @@ router.get("/restaurants/:id", function (req, res) {
     if (restaurant.id === restaurantId) {
       return res.render("restaurant-detail", { restaurant: restaurant });
     }
-
-    res.status(404).render("404");
   }
+  res.status(404).render("404");
 });
 
 router.get("/confirm", function (req, res) {
